@@ -2,11 +2,14 @@
 Pulsarity Language Pack
 """
 
+import importlib.metadata
 from importlib.resources import files
 from pathlib import Path
 from typing import Sequence
 
 import anyio
+
+__version__ = importlib.metadata.version(__name__)
 
 _LOCALS_PATH = Path(files("pulsarity_languages")) / "locals"  # type:ignore
 _LANGUAGES: list[str] = [file.stem for file in _LOCALS_PATH.iterdir()]
