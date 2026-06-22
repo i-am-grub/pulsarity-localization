@@ -1,0 +1,17 @@
+{
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "autoDocstring.startOnNewLine": true,
+    "autoDocstring.guessTypes": false,
+    "autoDocstring.docstringFormat": "sphinx-notypes",
+    "pylint.importStrategy": "fromEnvironment",
+    "ruff.importStrategy": "fromEnvironment",
+    "python.languageServer": "None",
+}
