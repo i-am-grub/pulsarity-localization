@@ -1,0 +1,45 @@
+{
+    "messages": {
+        "overview": "overview",
+        "current race": "current race",
+        "results": "results",
+        "username": "username",
+        "password": "password",
+        "start": "start",
+        "stop": "stop",
+        "save": "save",
+        "discard": "discard"
+    },
+    "plural": {
+        "pilot": "no pilots | one pilot | {n} pilots"
+    },
+    "decimal": {
+        "style": "decimal",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+    },
+    "datetime": {
+        "short": {
+            "year": "numeric",
+            "month": "short",
+            "day": "numeric"
+        },
+        "long": {
+            "year": "numeric",
+            "month": "short",
+            "day": "numeric",
+            "weekday": "short",
+            "hour": "numeric",
+            "minute": "numeric"
+        }
+    },
+    "currency": {
+        "style": "currency",
+        "currency": "USD",
+        "notation": "standard"
+    },
+    "percent": {
+        "style": "percent",
+        "useGrouping": false
+    }
+}
