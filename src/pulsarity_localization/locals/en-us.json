@@ -1,14 +1,14 @@
 {
     "messages": {
-        "overview": "overview",
-        "current race": "current race",
-        "results": "results",
-        "username": "username",
-        "password": "password",
-        "start": "start",
-        "stop": "stop",
-        "save": "save",
-        "discard": "discard"
+        "overview": "Overview",
+        "current_race": "Current Race",
+        "results": "Results",
+        "username": "Username",
+        "password": "Password",
+        "start": "Start",
+        "stop": "Stop",
+        "save": "Save",
+        "discard": "Discard"
     },
     "plural": {
         "pilot": "no pilots | one pilot | {n} pilots"

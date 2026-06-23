@@ -11,7 +11,7 @@ import anyio
 
 __version__ = importlib.metadata.version(__name__)
 
-_LOCALS_PATH = Path(files("pulsarity_languages")) / "locals"  # type:ignore
+_LOCALS_PATH = Path(files("pulsarity_localization")) / "locals"  # type:ignore
 _LANGUAGES: list[str] = [file.stem for file in _LOCALS_PATH.iterdir()]
 _LANGUAGES.sort()
 
