@@ -3,9 +3,11 @@ Pulsarity Language Pack
 """
 
 import importlib.metadata
+import json
 from importlib.resources import files
 from pathlib import Path
-from typing import Sequence
+from typing import Sequence, TypedDict
+from venv import logger
 
 import anyio
 
@@ -16,7 +18,16 @@ _LANGUAGES: list[str] = [file.stem for file in _LOCALS_PATH.iterdir()]
 _LANGUAGES.sort()
 
 
-def load_language_pack_sync(key: str) -> str | None:
+class LocalizationData(TypedDict):
+    """
+    Parsed localization data
+    """
+
+    messages: dict[str, str]
+    pluralization: dict[str, str]
+
+
+def load_language_pack_sync(key: str) -> LocalizationData | None:
     """
     Loads the language pack synchronously
 
@@ -27,11 +38,16 @@ def load_language_pack_sync(key: str) -> str | None:
     if key in _LANGUAGES:
         path = _LOCALS_PATH / f"{key}.json"
         with path.open(encoding="utf-8") as f:
-            return f.read()
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                msg = "Failed to parse localization data"
+                logger.exception(msg)
+
     return None
 
 
-async def load_language_pack_async(key: str) -> str | None:
+async def load_language_pack_async(key: str) -> LocalizationData | None:
     """
     Loads the language pack asynchronously
 
@@ -42,7 +58,13 @@ async def load_language_pack_async(key: str) -> str | None:
     if key in _LANGUAGES:
         path = _LOCALS_PATH / f"{key}.json"
         async with await anyio.open_file(path, encoding="utf-8") as f:
-            return await f.read()
+            data = await f.read()
+            try:
+                return json.loads(data)
+            except json.JSONDecodeError:
+                msg = "Failed to parse localization data"
+                logger.exception(msg)
+
     return None
 
 
