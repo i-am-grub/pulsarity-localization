@@ -1,3 +1,0 @@
-import pulsarity_localization
-
-print(pulsarity_localization.version)
