@@ -6,14 +6,19 @@ import importlib.metadata
 import json
 from importlib.resources import files
 from pathlib import Path
-from typing import Sequence, TypedDict
+from typing import TYPE_CHECKING, TypedDict
 from venv import logger
 
 import anyio
+import semver
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
 
 __version__ = importlib.metadata.version(__name__)
+version = semver.Version.parse(__version__)
 
-_LOCALS_PATH = Path(files("pulsarity_localization")) / "locals"  # type:ignore
+_LOCALS_PATH = Path(files("pulsarity_localization")) / "locals"  # pyright: ignore[reportArgumentType]
 _LANGUAGES: list[str] = [file.stem for file in _LOCALS_PATH.iterdir()]
 _LANGUAGES.sort()
 
