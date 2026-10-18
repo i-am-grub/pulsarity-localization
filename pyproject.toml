@@ -5,11 +5,11 @@ readme = "README.md"
 license = "MIT"
 authors = [{ name = "Bryce Gruber", email = "dev@brycegruber.com" }]
 requires-python = ">=3.14"
-dependencies = ["anyio>=4.14.0", "semver>=3.1.0"]
+dependencies = ["anyio>=4.14.0"]
 dynamic = ["version"]
 
 [build-system]
-requires = ["hatchling==1.29.0", "versioningit==3.3.0"]
+requires = ["hatchling>=1.32.4", "versioningit>=3.3.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
@@ -31,15 +31,7 @@ distance = "{next_version}-dev.{distance}+{vcs}{rev}"
 dirty = "{version}+dirty"
 distance-dirty = "{next_version}-dev.{distance}+{vcs}{rev}.dirty"
 
-
 [tool.ruff.lint]
-exclude = [
-    "tests/*",
-    "docs/*",
-    ".mypy_cache",
-    "env",
-    "src/pulsarity/_protobuf/*",
-]
 select = [
     # defaults
     "E4",
